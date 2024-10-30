@@ -1,0 +1,14 @@
+---
+import SectionContainer from "@/components/SectionContainer.astro";
+import { basics } from '@/cv'
+
+const { summary } = basics
+
+---
+
+
+<SectionContainer title="Sobre Mí">
+    <p>
+        {summary}
+    </p>
+</SectionContainer>

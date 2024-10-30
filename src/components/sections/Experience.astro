@@ -1,0 +1,94 @@
+---
+import SectionContainer from "@/components/SectionContainer.astro";
+
+import { work } from '@/cv'
+---
+
+
+<SectionContainer title="Experiencia Laboral">
+    <ul>
+        {
+            work.map(({name, position, startDate, endDate, summary, mode})=>{
+
+                const startYear = new Date(startDate).getFullYear()
+                const endYear = endDate != null ? new Date(endDate).getFullYear(): "Actual" 
+
+                const years = `${startYear} - ${endYear}`
+                return(
+                    <li>
+                        <article>
+                            <header>
+                                <div class="info">
+                                    <div>
+                                        <h3>
+                                            {position}
+                                        </h3>
+                                        <h4>
+                                            {name}
+                                        </h4>
+                                    </div>
+
+                                    <p>
+                                        {mode}
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <time>
+                                        {years}
+                                    </time>
+                                </div>
+                            </header>
+
+                            <footer>
+                                <p>{summary}</p>
+                            </footer>
+                        </article>
+                    </li>
+                )
+            })
+        }
+    </ul>
+</SectionContainer>
+
+<style>
+    ul{
+        display: flex;
+        flex-direction: column;
+        gap:32px;
+    }
+
+    article h3{
+        font-weight: 700;
+        color: #111;
+    }
+
+    article h4{
+        color: #222;
+        font-weight: 400;
+    }
+
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4px;
+    }
+
+    .info{
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .info p {
+        font-weight: 600;
+        color: #111;
+        padding: .2rem .85rem;
+        font-size: small;
+    }
+
+    time{
+        font-size: .85rem;
+        color: #555;
+    }
+</style>

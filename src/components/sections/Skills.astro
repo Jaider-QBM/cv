@@ -1,0 +1,91 @@
+---
+import { skills } from "@/cv";
+import SectionContainer from "@/components/SectionContainer.astro";
+
+import type { SocialIcon } from "@/types.ts";
+import Angular from "@/icons/Angular.astro";
+import AstroIcon from "@/icons/AstroIcon.astro";
+import Bootstrap from "@/icons/Bootstrap.astro";
+import CSS from "@/icons/CSS.astro";
+import Sass from "@/icons/Sass.astro";
+import Figma from "@/icons/Figma.astro";
+import Flask from "@/icons/Flask.astro";
+import Html from "@/icons/Html.astro";
+import Java from "@/icons/Java.astro";
+import JavaScript from "@/icons/JavaScript.astro";
+import Laravel from "@/icons/Laravel.astro";
+import MariaDB from "@/icons/MariaDB.astro";
+import MongoDB from "@/icons/MongoDB.astro";
+import MySQL from "@/icons/MySQL.astro";
+import Php from "@/icons/Php.astro";
+import Python from "@/icons/Python.astro";
+import React from "@/icons/React.astro";
+import Vue from "@/icons/Vue.astro";
+import TailwindCss from "@/icons/TailwindCss.astro";
+import Spring from "@/icons/Spring.astro";
+import TypeScript from "@/icons/TypeScript.astro";
+
+const SOCIAL_ICONS: SocialIcon = {
+    Angular,
+    AstroIcon,
+    React,
+    Vue,
+    Bootstrap,
+    Html,
+    CSS,
+    Sass,
+    TailwindCss,
+    Figma,
+    Flask,
+    Laravel,
+    Spring,
+    Java,
+    JavaScript,
+    TypeScript,
+    Php,
+    Python,
+    MySQL,
+    MongoDB,
+    MariaDB,
+};
+---
+
+<SectionContainer title="Habilidades Técnicas">
+    <ul>
+        {
+            skills.map(({ name, network }) => {
+                const Icon = SOCIAL_ICONS[network];
+                return (
+                    <li>
+                        {
+                            Icon && <Icon />
+                        }    
+                        <span>
+                            {name}
+                        </span>
+                    </li>
+                );
+            })
+        }
+    </ul>
+</SectionContainer>
+
+<style>
+    ul {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    li {
+        align-items: center;
+        background: rgb(39, 39, 39);
+        border-radius: 6px;
+        color: white;
+        display: flex;
+        font-size: 0.8rem;
+        font-weight: 500;
+        gap: 4px;
+        padding: .2rem .6rem;
+    }
+</style>
